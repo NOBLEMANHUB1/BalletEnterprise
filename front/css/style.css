@@ -1327,3 +1327,10 @@ header {
 
   text-decoration: none;
 }
+
+@media (max-width: 480px) {
+  .notification-dropdown {
+    width: calc(100vw - 32px);
+    right: -8px;
+  }
+}
