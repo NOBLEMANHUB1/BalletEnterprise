@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Ballet Enterprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+5
+<header class="auth-header">
+  <a href="index.html" class="brand">Ballet <span>Enterprise</span></a>
+</header>
+
+<main class="auth-page">
+  <div class="auth-card">
+    <span class="admin-pill">Admin</span>
+    <h2>Admin Login</h2>
+    <p class="auth-sub">Sign in to manage products and pricing.</p>
+
+    <form id="adminLoginForm" novalidate>
+
+      <div class="form-group">
+        <label for="adminUser">Username or email</label>
+        <input type="text" id="adminUser" name="adminUser" placeholder="Enter admin username or email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" name="adminPassword" placeholder="Enter admin password" required>
+      </div>
+
+      <p class="form-error" id="formError" role="alert"></p>
+
+      <button type="submit" class="auth-btn">Login</button>
+    </form>
+
+    
+  </div>
+</main>
+
+<script src="js/api-config.js"></script>
+<script src="js/session.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sign In — Ballet Enterprise</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+
+  <body class="auth-body">
+    <header class="auth-header">
+      <a href="index.html" class="brand"> Ballet <span>Enterprise</span> </a>
+
+      <ul class="auth-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </header>
+
+    <main class="auth-page">
+      <div class="auth-card">
+        <h2>Sign in</h2>
+
+        <p class="auth-sub">Welcome back — sign in to continue shopping.</p>
+
+        <form id="signinForm" novalidate>
+          <div class="form-group">
+            <label for="loginContact"> Email or Phone Number </label>
+
+            <input
+              type="text"
+              id="loginContact"
+              name="loginContact"
+              placeholder="Enter email or phone number"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword"> Password </label>
+
+            <input
+              type="password"
+              id="loginPassword"
+              name="loginPassword"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <p class="form-error" id="formError"></p>
+
+          <button type="submit" class="auth-btn" id="signinSubmitBtn">
+            Sign in
+          </button>
+        </form>
+
+        <p class="auth-footer">
+          Don't have an account?
+
+          <a href="signup.html" class="auth-link"> Sign up </a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ballet Enterprise. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/api-config.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/footer.js"></script>
+  </body>
+</html>

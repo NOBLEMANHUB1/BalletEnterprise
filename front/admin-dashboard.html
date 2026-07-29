@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard — Ballet Enterprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <header class="admin-topbar">
+      <a href="index.html" class="brand">Ballet <span>Enterprise</span></a>
+      <div class="admin-topbar-right">
+        <span class="admin-user-tag">Admin Panel</span>
+        <button id="logoutBtn" class="logout-btn">Log out</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-card">
+        <h2 class="admin-heading">Add New Product</h2>
+        <p class="admin-sub">
+          Fill in the details below to list a new product on the site.
+        </p>
+
+        <form id="addProductForm" class="admin-form" novalidate>
+          <div class="form-group">
+            <label for="prodName">Product name</label>
+            <input
+              type="text"
+              id="prodName"
+              placeholder="e.g. PowerBlend Pro Blender"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prodCategory">Category</label>
+              <select id="prodCategory" required>
+                <option value="" disabled selected>Select category</option>
+                <option>Kitchen Appliances</option>
+                <option>Phones</option>
+                <option>Phone Accessories</option>
+                <option>Laptops</option>
+                <option>Laptop Accessories</option>
+                <option>TVs</option>
+                <option>TV Accessories</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label id="prodPriceLabel" for="prodPrice">Price (GHS)</label>
+              <input
+                type="number"
+                id="prodPrice"
+                min="0"
+                step="0.01"
+                placeholder="0.00"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prodAvailability">Availability</label>
+              <select id="prodAvailability" required>
+                <option value="ghana">Available in Ghana</option>
+                <option value="preorder">Pre-Order</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="shipTimeGroup" style="display: none">
+              <label for="prodShipTime">Ships in</label>
+              <input
+                type="text"
+                id="prodShipTime"
+                placeholder="e.g. 2–3 weeks"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="prodDescription">Short description</label>
+            <textarea
+              id="prodDescription"
+              rows="3"
+              placeholder="A short description customers will see on the product page"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Product images
+              <span class="field-optional"
+                >(at least 4 recommended — upload a file OR paste a URL for
+                each)</span
+              ></label
+            >
+            <div class="image-upload-grid">
+              <div class="image-upload-slot">
+                <span class="image-slot-label"
+                  >Image 1 <span class="field-optional">(required)</span></span
+                >
+                <input
+                  type="file"
+                  class="prod-image-file"
+                  data-slot="1"
+                  accept="image/*"
+                />
+                <div class="image-slot-or">or paste a URL</div>
+                <input
+                  type="text"
+                  class="prod-image-url"
+                  data-slot="1"
+                  placeholder="https://..."
+                />
+                <div
+                  class="image-slot-preview"
+                  id="preview1"
+                  style="display: none"
+                ></div>
+              </div>
+
+              <div class="image-upload-slot">
+                <span class="image-slot-label">Image 2</span>
+                <input
+                  type="file"
+                  class="prod-image-file"
+                  data-slot="2"
+                  accept="image/*"
+                />
+                <div class="image-slot-or">or paste a URL</div>
+                <input
+                  type="text"
+                  class="prod-image-url"
+                  data-slot="2"
+                  placeholder="https://..."
+                />
+                <div
+                  class="image-slot-preview"
+                  id="preview2"
+                  style="display: none"
+                ></div>
+              </div>
+
+              <div class="image-upload-slot">
+                <span class="image-slot-label">Image 3</span>
+                <input
+                  type="file"
+                  class="prod-image-file"
+                  data-slot="3"
+                  accept="image/*"
+                />
+                <div class="image-slot-or">or paste a URL</div>
+                <input
+                  type="text"
+                  class="prod-image-url"
+                  data-slot="3"
+                  placeholder="https://..."
+                />
+                <div
+                  class="image-slot-preview"
+                  id="preview3"
+                  style="display: none"
+                ></div>
+              </div>
+
+              <div class="image-upload-slot">
+                <span class="image-slot-label">Image 4</span>
+                <input
+                  type="file"
+                  class="prod-image-file"
+                  data-slot="4"
+                  accept="image/*"
+                />
+                <div class="image-slot-or">or paste a URL</div>
+                <input
+                  type="text"
+                  class="prod-image-url"
+                  data-slot="4"
+                  placeholder="https://..."
+                />
+                <div
+                  class="image-slot-preview"
+                  id="preview4"
+                  style="display: none"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Product video
+              <span class="field-optional"
+                >(optional — upload a file OR paste a URL. Keep it short, 3
+                minutes max)</span
+              ></label
+            >
+            <div class="image-upload-slot">
+              <input
+                type="file"
+                id="prodVideoFile"
+                accept="video/mp4,video/webm,video/quicktime"
+              />
+              <div class="image-slot-or">or paste a URL</div>
+              <input
+                type="text"
+                id="prodVideoUrl"
+                placeholder="https://... (.mp4 link)"
+              />
+              <video
+                id="videoPreview"
+                controls
+                style="
+                  display: none;
+                  width: 100%;
+                  border-radius: 6px;
+                  max-height: 160px;
+                "
+              ></video>
+            </div>
+            <p class="field-warning" id="videoDurationWarning"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="prodTag">Badge (optional)</label>
+            <select id="prodTag">
+              <option value="">None</option>
+              <option>New</option>
+              <option>Best Seller</option>
+              <option>Limited</option>
+            </select>
+          </div>
+
+          <p class="form-error" id="addProductError" role="alert"></p>
+
+          <button type="submit" class="auth-btn" id="addProductSubmitBtn">
+            Add product
+          </button>
+        </form>
+      </section>
+
+      <section class="admin-card">
+        <h2 class="admin-heading">Currency Settings</h2>
+        <p class="admin-sub">
+          Choose which currency you enter product prices in, and set the
+          exchange rate customers see when they switch currencies.
+        </p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="baseCurrencySelect"
+              >Base currency (what you type prices in)</label
+            >
+            <select id="baseCurrencySelect">
+              <option value="GHS">Ghanaian Cedi (GHS)</option>
+              <option value="USD">US Dollar (USD)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exchangeRateInput">1 USD equals (GHS)</label>
+            <input
+              type="number"
+              id="exchangeRateInput"
+              min="0"
+              step="0.01"
+              placeholder="e.g. 15.50"
+            />
+          </div>
+        </div>
+
+        <p class="form-error" id="exchangeRateError" role="alert"></p>
+        <button
+          class="auth-btn"
+          id="saveExchangeRateBtn"
+          style="width: auto; padding: 12px 28px"
+        >
+          Save Currency Settings
+        </button>
+      </section>
+
+      <section class="admin-card">
+        <h2 class="admin-heading">Manage Products</h2>
+        <p class="admin-sub">
+          Update prices or remove products already listed on the site.
+        </p>
+
+        <div class="table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Availability</th>
+                <th id="priceColumnHeader">Price (GHS)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="productTableBody">
+              <!-- rows injected by js/admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-card">
+        <div class="orders-header">
+          <div>
+            <h2 class="admin-heading">Orders</h2>
+            <p class="admin-sub">
+              Every order placed on the site, newest first — update status as
+              you fulfill them.
+            </p>
+          </div>
+          <span class="orders-count-pill" id="ordersCountPill">0 orders</span>
+        </div>
+
+        <div class="orders-list" id="ordersList">
+          <!-- rendered by js/admin.js -->
+        </div>
+
+        <p class="no-orders-admin" id="noOrdersAdmin" style="display: none">
+          No orders yet — they'll show up here the moment someone checks out.
+        </p>
+      </section>
+
+      <section class="admin-card activity-log-card">
+        <div class="activity-log-header">
+          <div>
+            <h2 class="admin-heading">Activity Log</h2>
+            <p class="admin-sub">
+              Real-time signups, cart activity, and orders as they happen on
+              your store.
+            </p>
+          </div>
+          <span class="activity-live-dot"
+            ><span class="pulse-dot"></span> Live</span
+          >
+        </div>
+
+        <div class="activity-controls">
+          <input
+            type="text"
+            id="activitySearch"
+            class="activity-search"
+            placeholder="Search by action, user, or details..."
+          />
+
+          <div class="activity-filters">
+            <button class="activity-filter-btn active" data-category="all">
+              All
+            </button>
+            <button class="activity-filter-btn" data-category="Auth">
+              Auth
+            </button>
+            <button class="activity-filter-btn" data-category="Cart">
+              Cart
+            </button>
+            <button class="activity-filter-btn" data-category="Orders">
+              Orders
+            </button>
+            <button class="activity-filter-btn" data-category="System">
+              System
+            </button>
+          </div>
+        </div>
+
+        <div class="activity-log-list" id="activityLogList">
+          <!-- rows injected by js/admin.js -->
+        </div>
+      </section>
+    </main>
+
+    <div id="newOrderToast" class="new-order-toast"></div>
+
+    <script src="js/api-config.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
