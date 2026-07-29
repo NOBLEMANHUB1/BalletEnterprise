@@ -3,16 +3,17 @@
 // TO CHANGE THE NUMBER LATER: just update WHATSAPP_NUMBER below.
 // Format: country code + number, no "+", no spaces, no leading 0.
 // e.g. Ghana number 054 206 0426 becomes 233542060426.
-const WHATSAPP_NUMBER = '233542060426';
-const WHATSAPP_MESSAGE = "Hi! I have a question about a product on Ballet Enterprise.";
+const WHATSAPP_NUMBER = "233595883521";
+const WHATSAPP_MESSAGE =
+  "Hi! I have a question about a product on Ballet Enterprise.";
 
-document.addEventListener('DOMContentLoaded', function () {
-  const link = document.createElement('a');
+document.addEventListener("DOMContentLoaded", function () {
+  const link = document.createElement("a");
   link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
-  link.className = 'whatsapp-float';
-  link.setAttribute('aria-label', 'Chat with us on WhatsApp');
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.className = "whatsapp-float";
+  link.setAttribute("aria-label", "Chat with us on WhatsApp");
 
   link.innerHTML = `
     <svg viewBox="0 0 32 32" width="30" height="30" fill="white">

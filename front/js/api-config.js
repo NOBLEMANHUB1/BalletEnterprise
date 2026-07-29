@@ -1,6 +1,6 @@
 // Central place to point the frontend at the backend API.
 // Change this if you deploy the backend somewhere other than localhost.
-const API_BASE_URL = "https://balletenterprise.onrender.com";
+const API_BASE_URL = "https://balletenterprise.onrender.com/api";
 
 // Paystack PUBLIC key — safe to expose in frontend code, that's how Paystack
 // Inline is designed to work. Find it in your Paystack dashboard under
