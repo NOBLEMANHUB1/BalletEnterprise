@@ -1334,3 +1334,19 @@ header {
     right: -8px;
   }
 }
+@media (max-width: 900px) {
+  .navbar {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-dropdown {
+    width: calc(100vw - 32px);
+    right: -60px;
+  }
+}
