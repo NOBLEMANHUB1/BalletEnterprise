@@ -1364,3 +1364,9 @@ header {
     flex-shrink: 0;
   }
 }
+
+@media (max-width: 480px) {
+  .currency-toggle {
+    display: none;
+  }
+}
