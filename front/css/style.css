@@ -1355,3 +1355,12 @@ header {
     right: -60px;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+  .nav-actions {
+    flex-shrink: 0;
+  }
+}
